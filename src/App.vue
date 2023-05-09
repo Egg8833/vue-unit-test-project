@@ -1,18 +1,32 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Hello World</h2>
+    <HelloWorld msg="Welcome to Your Vue.js App" color="red"/>
+    <HelloTest name="Jack" greeting="gg"/>
+    <MessageW msg="Hello Friends" />
+    <TodoApp />
+    <VueT/>
+    <TodoList />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import HelloTest from './components/HelloTest.vue'
+import MessageW from '@/components/MessageW.vue'
+import TodoApp from '@/components/TodoApp.vue'
+import TodoList from '@/components/TodoList.vue'
+// import FormTest from './components/FormTest.vue';
+import VueT from '@/components/VueT.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    MessageW,
+    TodoApp,
+    VueT,HelloTest,TodoList
+}
 }
 </script>
 
