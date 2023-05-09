@@ -9,6 +9,7 @@
     </ul>
     <div data-test="target">dataset</div>
     <button @click="add" id="btn">button</button>
+    <input type="text" v-model="count">
 
   </div>
 </template>
