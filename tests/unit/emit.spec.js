@@ -30,13 +30,10 @@ describe('ParentComponent', () => {
         ChildComponent: true,
       },
       // 設置 ParentComponent 的 data 中的 parentData 為 'Parent Data'
-      // data() {
-      //   return {
-      //     parentData: 'Parent Data',
-      //   }
-      // },
-      propsData: {
-        parentData: 'Parent Data',
+      data() {
+        return {
+          parentData: 'Parent Data',
+        }
       },
     })
     // 透過 findComponent 找到 ChildComponent 的 wrapper
@@ -44,5 +41,20 @@ describe('ParentComponent', () => {
     // 確認子組件的 myProp 是否為 'Parent Data'
     console.log(('props',childWrapper.props()))
     expect(childWrapper.props('myProp')).toBe('Parent Data')
+  })
+})
+
+
+describe('ChildComponent', () => {
+  it("emits 'my-event' when button is clicked", () => {
+    const wrapper = shallowMount(ChildComponent, {
+      propsData: {
+        myProp: 'Parent Data',
+      },
+    })
+    wrapper.find('button').trigger('click')
+    expect(wrapper.emitted('my-event')).toBeTruthy()
+    expect(wrapper.emitted('my-event').length).toBe(1)
+    expect(wrapper.emitted('my-event')[0]).toEqual(['Child Data'])
   })
 })

@@ -1,24 +1,5 @@
 # vue-test-0508
 
-## Project setup
-```
-npm install
-```
+### unit-test-Project
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+此專案主要實作與練習vue的單元測試，內容來自網路上的資源與自身想要測試的練習實作。
