@@ -15,7 +15,13 @@ describe('ParentComponent', () => {
     // 透過 findComponent 找到 ChildComponent 的 wrapper
     const childWrapper = wrapper.findComponent(ChildComponent)
     // 使用 childWrapper 觸發 'my-event' 事件，並且傳遞 'Child Data' 給父組件
+
+    // 模擬一個emit事件，發送過去。
     childWrapper.vm.$emit('my-event', 'Child Data')
+
+    // 用組件的emitEvent()事件發送過去。在shallowMount下的stubs:{ChildComponent:ChildComponent}，不得為stubs: {ChildComponent: true,} true的話，就會變成假的組件，內容並不會渲染。
+    // childWrapper.vm.emitEvent()
+
     // 由於 $emit 是非同步的，需要使用 $nextTick() 確保更新完成
     await wrapper.vm.$nextTick()
     // 確認更新後的資料是否如預期，即 ParentComponent 的 p 標籤中的文字為 'Child Data'
@@ -29,32 +35,33 @@ describe('ParentComponent', () => {
       stubs: {
         ChildComponent: true,
       },
-      // 設置 ParentComponent 的 data 中的 parentData 為 'Parent Data'
       data() {
         return {
           parentData: 'Parent Data',
         }
       },
     })
-    // 透過 findComponent 找到 ChildComponent 的 wrapper
+
     const childWrapper = wrapper.findComponent(ChildComponent)
     // 確認子組件的 myProp 是否為 'Parent Data'
-    console.log(('props',childWrapper.props()))
     expect(childWrapper.props('myProp')).toBe('Parent Data')
   })
 })
 
-
 describe('ChildComponent', () => {
-  it("emits 'my-event' when button is clicked", () => {
+  it("emited 'my-event' when button is clicked", () => {
     const wrapper = shallowMount(ChildComponent, {
       propsData: {
         myProp: 'Parent Data',
       },
     })
     wrapper.find('button').trigger('click')
+    console.log(wrapper.emitted('my-event'))
     expect(wrapper.emitted('my-event')).toBeTruthy()
     expect(wrapper.emitted('my-event').length).toBe(1)
-    expect(wrapper.emitted('my-event')[0]).toEqual(['Child Data'])
+    expect(wrapper.emitted('my-event')[0]).toEqual(['Child Data','Name'])
+    expect(wrapper.emitted('my-event')[0][0]).toEqual('Child Data')
+    expect(wrapper.emitted('my-event')[0][1]).toEqual('Name')
   })
 })
+

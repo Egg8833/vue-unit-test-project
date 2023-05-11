@@ -9,7 +9,7 @@
     <VueT/>
     <TodoList />
     <InputAndComputed minLength="6" />
-    <!-- / -->
+    <FormSubmitter />
   </div>
 </template>
 
@@ -22,13 +22,14 @@ import TodoList from '@/components/TodoList.vue'
 // import FormTest from './components/FormTest.vue';
 import VueT from '@/components/VueT.vue'
 import InputAndComputed from '@/components/InputComputed.vue'
+import FormSubmitter from '@/components/FormSubmitter.vue'
 export default {
   name: 'App',
   components: {
     HelloWorld,
     MessageW,
     TodoApp,
-    VueT,HelloTest,TodoList,InputAndComputed
+    VueT,HelloTest,TodoList,InputAndComputed,FormSubmitter
 
 }
 }

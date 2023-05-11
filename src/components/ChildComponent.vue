@@ -12,7 +12,7 @@ export default {
       this.$emit("my-event", "Child Data");
     },
     emitEvent() {
-      this.$emit("my-event", "Child Data");
+      this.$emit("my-event", "Child Data","Name");
     },
   },
   props: {
