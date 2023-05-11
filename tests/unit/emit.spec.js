@@ -2,7 +2,6 @@ import {shallowMount} from '@vue/test-utils'
 import ParentComponent from '@/components/ParentComponent.vue'
 import ChildComponent from '@/components/ChildComponent.vue'
 
-
 describe('ParentComponent', () => {
   // 第一個測試: 子組件觸發事件更新父組件資料
   it('receives child event and updates parent data', async () => {
@@ -57,6 +56,7 @@ describe('ChildComponent', () => {
     })
     wrapper.find('button').trigger('click')
     console.log(wrapper.emitted('my-event'))
+    expect(wrapper.emitted()).toHaveProperty('my-event')
     expect(wrapper.emitted('my-event')).toBeTruthy()
     expect(wrapper.emitted('my-event').length).toBe(1)
     expect(wrapper.emitted('my-event')[0]).toEqual(['Child Data','Name'])

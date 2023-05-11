@@ -11,10 +11,13 @@ const factory = (values = {}) => {
   })
 }
 
+
+
 describe('VueT', () => {
 
   it('renders a welcome message', () => {
     const wrapper = factory()
+
     expect(wrapper.find('.message').text()).toEqual(
       'Welcome to the Vue.js cookbook'
     )

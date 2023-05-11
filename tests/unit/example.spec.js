@@ -10,7 +10,7 @@ describe("HelloWorld.vue", () => {
       },
     });
     console.log(wrapper.props());
-    expect(wrapper.props().color).toBe("red");
+    expect(wrapper.props('color')).toBe("red");
   });
 });
 
@@ -18,17 +18,12 @@ describe("data-set ", () => {
   it("renders data-set when passed", async () => {
     // const msg = 'new message'
     const wrapper = shallowMount(HelloWorld);
-    const text = wrapper.find('[data-test="target"]').html();
-    console.log("text", text);
-    const book = wrapper.vm.book;
-    // console.log("book", book);
-    wrapper.setData({ book: "no reading" });
+
     const btn = wrapper.find("#btn");
 
     btn.trigger("click");
     btn.trigger("click");
     const count = wrapper.vm.count;
-    // console.log("count", wrapper.vm.count);
     expect(count).toBe(3);
     expect(wrapper.find('[data-test="target"]').text()).toBe("dataset");
 
