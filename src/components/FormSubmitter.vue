@@ -3,6 +3,11 @@
     <form @submit.prevent="handleSubmit">
       <input v-model="username" data-username>
       <input type="submit">
+      <select id="mySelect">
+        <option value="option1">選項 1</option>
+        <option value="option2">選項 2</option>
+        <option value="option3">選項 3</option>
+      </select>
     </form>
 
     <div
