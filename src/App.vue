@@ -10,11 +10,16 @@
     <TodoList />
     <InputAndComputed minLength="6" />
     <FormSubmitter />
+    <bankInfo />
+
+
   </div>
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
+import bankInfo from '@/components/BankInfo.vue'
 import HelloTest from './components/HelloTest.vue'
 import MessageW from '@/components/MessageW.vue'
 import TodoApp from '@/components/TodoApp.vue'
@@ -29,10 +34,12 @@ export default {
     HelloWorld,
     MessageW,
     TodoApp,
-    VueT,HelloTest,TodoList,InputAndComputed,FormSubmitter
+    VueT,HelloTest,TodoList,InputAndComputed,FormSubmitter,bankInfo
+}
 
 }
-}
+
+
 </script>
 
 <style>

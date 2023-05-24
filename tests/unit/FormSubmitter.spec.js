@@ -28,4 +28,20 @@ describe("FormSubmitter", () => {
 
   });
 
+  it('模擬 input 輸入', async () => {
+    const wrapper = shallowMount(FormSubmitter)
+    await wrapper.find('[data-test="text"]').setValue('Hello, World!')
+    expect(wrapper.find('[data-test="result_text"]').text()).toBe('Hello, World!')
+})
+
+  it('模擬 日期 輸入', async () => {
+    const wrapper = shallowMount(FormSubmitter)
+    const input = wrapper.find('[data-test="date"]')
+    await wrapper.find('[data-test="date"]').setValue('2022/10/06')
+    console.log('input',input.element)
+    console.log('input',input.element.value)
+    // expect(wrapper.find('[data-test="result_date"]').text()).toBe('2022/10/06')
+})
+
+
 });
