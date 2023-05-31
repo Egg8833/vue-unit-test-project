@@ -37,6 +37,7 @@ describe("FormSubmitter", () => {
   it('模擬 日期 輸入', async () => {
     const wrapper = shallowMount(FormSubmitter)
     const input = wrapper.find('[data-test="date"]')
+    console.log('input',input);
     await wrapper.find('[data-test="date"]').setValue('2022/10/06')
     console.log('input',input.element)
     console.log('input',input.element.value)
